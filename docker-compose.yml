@@ -1,0 +1,28 @@
+services:
+  web:
+    build: .
+    container_name: cloud_web
+    ports:
+      - "8080:80"
+    networks:
+      - cloud_app_net
+      - cloude_db_net
+#    depends_on:
+#      db:
+#        condition: service_healthy
+        
+  db:
+    image: mariadb:11.4
+    container_name: cloud_db
+    environment:
+      MARIADB_DATABASE: cloud
+      MARIADB_USER: cloud_user
+      MARIADB_PASSWORD: cloud_pass
+      MARIADB_ROOT_PASSWORD: root_pass
+    network:
+      - cloud_db_net
+network:
+  cloud_app_net:
+    driver: bridge
+  cloud_db_net:
+    driver: bridge
