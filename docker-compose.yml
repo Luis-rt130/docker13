@@ -19,9 +19,9 @@ services:
       MARIADB_USER: cloud_user
       MARIADB_PASSWORD: cloud_pass
       MARIADB_ROOT_PASSWORD: root_pass
-    network:
+    networks:
       - cloud_db_net
-network:
+networks:
   cloud_app_net:
     driver: bridge
   cloud_db_net:
