@@ -6,7 +6,7 @@ services:
       - "8080:80"
     networks:
       - cloud_app_net
-      - cloude_db_net
+      - cloud_db_net
 #    depends_on:
 #      db:
 #        condition: service_healthy
